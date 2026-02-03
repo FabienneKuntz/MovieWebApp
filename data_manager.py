@@ -24,7 +24,7 @@ class DataManager():
 
 
     def add_movie(self, user_id, movie):
-        # 1. Filminfos von OMDb holen
+        # Get movie info from OMDb
         api_url = f"http://www.omdbapi.com/?t={movie}&apikey={MOVIES_API_KEY}"
         response = requests.get(api_url)
         if response.status_code != 200:
