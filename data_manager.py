@@ -39,7 +39,6 @@ class DataManager():
         movie = Movie(
             title=data.get("Title"),
             year=int(data.get("Year")) if data.get("Year") else None,
-            genre=data.get("Genre"),
             user_id=user_id
         )
 
