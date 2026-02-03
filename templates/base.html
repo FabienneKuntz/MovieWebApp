@@ -5,23 +5,20 @@
     <title>My Movie App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
     <header>
-    <h1>MyMovieApp</h1>
-    </header>
+        <h1>My Movie App</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Users</a></li>
 
-    <nav>
-        <ul>
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('list_users') }}">Users</a></li>
-            <li><a href="{{ url_for('list_movies') }}">Movies</a></li>
-        </ul>
-    </nav>
+            </ul>
+        </nav>
+    </header>
 
     <main class="container">
         {% block content %}{% endblock %}
     </main>
-</body>
 
+</body>
 </html>
