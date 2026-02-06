@@ -7,6 +7,10 @@ load_dotenv()
 MOVIES_API_KEY = os.getenv("MOVIES_API_KEY")
 
 
+class MovieNotFoundError(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+
 class DataManager():
   # Define Crud operations as methods
     def create_user(self, name):
@@ -33,8 +37,7 @@ class DataManager():
 
         data = response.json()
         if data.get("Response") != "True":
-            print("Movie not found.")
-            return None
+            raise MovieNotFoundError(f"Movie '{movie}' not found.")
 
         movie = Movie(
             title=data.get("Title"),
