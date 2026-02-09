@@ -7,18 +7,13 @@
 </head>
 <body>
     <header>
-        <h1>My Movie App</h1>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('index') }}">Users</a></li>
-
-            </ul>
-        </nav>
+        <h1 class="titles">🎬 My Movie App 🎬</h1>
     </header>
 
     <main class="container">
         {% block content %}{% endblock %}
     </main>
 
+    <footer>MyMovieApp all rights reserved to Fabienne</footer>
 </body>
 </html>
