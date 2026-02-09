@@ -1,11 +1,11 @@
 header {
-    background-color: blue;
+    background-color: #8C46F3;
     color: white;
     padding: 20px;
 }
 
 footer {
-    background-color: blue;
+    background-color: #8C46F3;
     color: white;
     text-align: center;
     padding: 40px;
@@ -58,6 +58,12 @@ button:active {
 .titles {
     margin-bottom: 16px;
     text-align: center;
+}
+
+.movie-poster {
+    height: 200px;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .users-grid, .movies-grid {

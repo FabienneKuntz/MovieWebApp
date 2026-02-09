@@ -39,11 +39,25 @@ class DataManager():
         if data.get("Response") != "True":
             raise MovieNotFoundError(f"Movie '{movie}' not found.")
 
+        rating_str = data.get("imdbRating")
+        try:
+            rating = float(rating_str) if rating_str and rating_str != "N/A" else None
+        except ValueError:
+            rating = None
+
+        imdb_id = data.get("imdbID")
+        poster_url = f"https://img.omdbapi.com/?apikey={MOVIES_API_KEY}&i={imdb_id}" if imdb_id else None
+
+
         movie = Movie(
             title=data.get("Title"),
             year=int(data.get("Year")) if data.get("Year") else None,
+            director=data.get("Director"),
+            rating=rating,
+            imdb_id = data.get("imdbID"),
+            poster_url = poster_url,
             user_id=user_id
-        )
+            )
 
         db.session.add(movie)
         db.session.commit()
@@ -63,4 +77,3 @@ class DataManager():
         if movie:
             db.session.delete(movie)
             db.session.commit()
-

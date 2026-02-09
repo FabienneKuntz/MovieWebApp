@@ -8,12 +8,15 @@
     <div class="movies-grid">
         {% for movie in movies %}
         <div class="movie-card">
+            <img class="movie-poster"
+                src="{{ movie.poster_url }}"
+                title="{{ movie.title }}"/>
             <form action="{{ url_for('update_movie', user_id=user.id, movie_id=movie.id) }}" method="post">
                 <input type="text" name="title" value="{{ movie.title }}" required>
                 <button type="submit">Update</button>
             </form>
-
-            <p>Director: {{ movie.director or "Unknown" }}</p>
+            <p><strong>Year</strong>: {{ movie.year }}</p>
+            <p><strong>Director</strong>: {{ movie.director or "Unknown" }}</p>
 
             <form action="{{ url_for('delete_movie', user_id=user.id, movie_id=movie.id) }}" method="post">
                 <button type="submit" onclick="return confirm('Are you sure you want to delete this movie?');">Delete</button>
