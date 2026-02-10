@@ -20,6 +20,7 @@ data_manager = DataManager() # Create an object of your DataManager class
 
 @app.route('/', methods=['GET'])
 def index():
+    """Homepage of website"""
     users = data_manager.get_users()
     return render_template('index.html', users=users)
 
@@ -38,6 +39,7 @@ def create_user():
 
 @app.route('/users/<int:user_id>/movies', methods=['GET'])
 def get_movies(user_id):
+    """Shows a page with all movies for selected user"""
     movies = data_manager.get_movies(user_id)
     user = next((u for u in data_manager.get_users() if u.id == user_id), None)
 

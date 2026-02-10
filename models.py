@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 class User(db.Model):
+    """Defines the Columns for users table"""
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(100), nullable=False)
@@ -12,7 +13,7 @@ class User(db.Model):
 
 
 class Movie(db.Model):
-    # Define all the Movie properties
+    """Defines the Columns for movies table"""
     __tablename__ = 'movies'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String, nullable=False)
